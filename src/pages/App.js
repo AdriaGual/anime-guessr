@@ -49,33 +49,51 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="p-10">
       {animes.length === 2 ? (
-        <div className="h-screen">
-          <div className="h-20 w-screen bg-gray-500">
-            <p className=" text-2xl font-bold">Which one is more popular?</p>
-            <GiPunch className="mx-auto text-6xl text-white" />
-          </div>
-          <div className="grid grid-cols-2 h-screen">
-            <div className="flex flex-col justify-center px-20 border bg-blue-100">
+        <div class="grid grid-cols-3 h-full">
+          <div class="flex bg-blue-100 p-10 shadow-lg rounded">
+            <div class="m-auto">
               <img className="mx-auto" alt="" src={animes[0].image_url}></img>
-              <p className="text-center text-lg font-semibold pt-6">
+              <p className="text-center text-lg font-bold pt-6">
                 {animes[0].title}
               </p>{" "}
               <p className="hidden md:block text-center pt-2">
-                {animes[0].synopsis.substring(0, 240) + "..."}
+                {animes[0].synopsis.length !== null
+                  ? animes[0].synopsis.substring(0, 240) + "..."
+                  : ""}
               </p>
             </div>
-            <div className="flex flex-col justify-center px-20 border bg-red-100">
+          </div>
+          <div class="text-center flex ">
+            {" "}
+            <div class="m-auto">
+              <p class="font-bold text-xl">Which one is more popular?</p>
+              <div class="grid grid-cols-1 px-10 gap-4 pt-6">
+                <button class="bg-transparent hover:bg-blue-400 text-blue-600 font-semibold hover:text-white py-2 px-4 border border-blue-400 hover:border-transparent rounded">
+                  {animes[0].title}
+                </button>
+
+                <button class="bg-transparent hover:bg-red-400 text-red-600 font-semibold hover:text-white py-2 px-4 border border-red-400 hover:border-transparent rounded">
+                  {animes[1].title}
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="flex bg-red-100 p-10 shadow-lg rounded">
+            {" "}
+            <div class="m-auto">
               <img className="mx-auto" alt="" src={animes[1].image_url}></img>
-              <p className="text-center text-lg font-semibold pt-6">
+              <p className="text-center text-lg font-bold pt-6">
                 {animes[1].title}
               </p>{" "}
               <p className="hidden md:block text-center pt-2">
-                {animes[1].synopsis.substring(0, 240) + "..."}
+                {animes[1].synopsis.length !== null
+                  ? animes[1].synopsis.substring(0, 240) + "..."
+                  : ""}
               </p>
             </div>
-          </div>{" "}
+          </div>
         </div>
       ) : (
         ""
