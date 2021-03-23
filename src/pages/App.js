@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
 import { GiPunch } from "react-icons/gi";
 
@@ -12,19 +11,19 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [animes, setAnimes] = useState([]);
 
-  function fetch2ndAnime(response) {
-    axios.get(`https://api.jikan.moe/v3/anime/` + getRandomInt(15000)).then(
-      (res2) => {
-        setAnimes([response, res2.data]);
-        setIsLoading(false);
-      },
-      function (error) {
-        fetch2ndAnime(response);
-      }
-    );
-  }
-
   useEffect(() => {
+    function fetch2ndAnime(response) {
+      axios.get(`https://api.jikan.moe/v3/anime/` + getRandomInt(15000)).then(
+        (res2) => {
+          setAnimes([response, res2.data]);
+          setIsLoading(false);
+        },
+        function (error) {
+          fetch2ndAnime(response);
+        }
+      );
+    }
+
     const fetchAnime = async () => {
       try {
         const result = await axios(
