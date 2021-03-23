@@ -104,7 +104,7 @@ function App() {
                 >
                   {animes[1].title}
                 </button>
-                <p class="font-bold text-gray-50 text-3xl">
+                <p className="font-bold text-gray-50 text-3xl">
                   Score: {pointsCounter}
                 </p>
                 {rightAnswer ? (
