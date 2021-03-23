@@ -1,42 +1,41 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { css } from "@emotion/core";
 import BounceLoader from "react-spinners/BounceLoader";
 import AnimeCard from "../components/AnimeCard";
 import NavBar from "../components/NavBar";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
-const override = css`
-  display: block;
-  margin: 0 auto;
-`;
+import Lottie from "react-lottie";
+import {
+  isRightAnswer,
+  defaultErrorOptions,
+  defaultSuccessOptions,
+  getRandomInt,
+  bounceLoaderOverride,
+} from "../utils/commonUtils";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [animes, setAnimes] = useState([]);
   const [pointsCounter, setPointsCounter] = useState(0);
+  const [rightAnswer, setRightAnswer] = useState(false);
+  const [wrongAnswer, setWrongAnswer] = useState(false);
 
   function verifyAnswer(points, option) {
-    var answer;
-
-    if (animes[0].rank < animes[1].rank) {
-      answer = 0;
-    } else {
-      answer = 1;
-    }
-
-    if (option === answer) {
+    if (isRightAnswer(option, animes)) {
       points++;
-      setIsLoading(true);
-      setPointsCounter(points);
+      setRightAnswer(true);
+      setTimeout(() => {
+        setIsLoading(true);
+        setPointsCounter(points);
+      }, 3000);
+    } else {
+      setWrongAnswer(true);
     }
   }
 
   useEffect(() => {
+    setRightAnswer(false);
+    setWrongAnswer(false);
     function fetch2ndAnime(response) {
       axios.get(`https://api.jikan.moe/v3/anime/` + getRandomInt(10000)).then(
         (res2) => {
@@ -70,7 +69,7 @@ function App() {
           <BounceLoader
             color="#ffffff"
             loading="true"
-            css={override}
+            css={bounceLoaderOverride}
             size={150}
           />
         </div>
@@ -81,7 +80,6 @@ function App() {
   return (
     <Router>
       <NavBar></NavBar>
-
       <div className="px-10 py-20">
         {animes.length === 2 ? (
           <div className="grid grid-cols-3 h-full">
@@ -106,10 +104,27 @@ function App() {
                 >
                   {animes[1].title}
                 </button>
-
                 <p class="font-bold text-gray-50 text-3xl">
                   Score: {pointsCounter}
                 </p>
+                {rightAnswer ? (
+                  <Lottie
+                    options={defaultSuccessOptions}
+                    height={200}
+                    width={200}
+                  />
+                ) : (
+                  ""
+                )}
+                {wrongAnswer ? (
+                  <Lottie
+                    options={defaultErrorOptions}
+                    height={200}
+                    width={200}
+                  />
+                ) : (
+                  ""
+                )}
               </div>
             </div>
             <AnimeCard
