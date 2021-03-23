@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ClipLoader from "react-spinners/ClipLoader";
-import { useHistory } from "react-router-dom";
+import AnimeCard from "../components/AnimeCard";
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -11,7 +11,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [animes, setAnimes] = useState([]);
   const [pointsCounter, setPointsCounter] = useState(0);
-  const history = useHistory();
 
   function verifyAnswer(points, option) {
     var answer;
@@ -70,24 +69,13 @@ function App() {
     <div className="p-10">
       {animes.length === 2 ? (
         <div className="grid grid-cols-3 h-full">
-          <div className="flex bg-blue-100 p-10 shadow-lg rounded">
-            <div className="m-auto">
-              <img className="mx-auto" alt="" src={animes[0].image_url}></img>
-              <p className="text-center text-lg font-bold pt-6">
-                {animes[0].title}
-              </p>{" "}
-              <p className="hidden md:block text-center pt-2">
-                {animes[0].synopsis !== null
-                  ? animes[0].synopsis.substring(0, 240) + "..."
-                  : ""}
-              </p>
-            </div>
-          </div>
+          <AnimeCard
+            anime={animes[0]}
+            classParam="flex bg-blue-100 p-10 shadow-lg rounded"
+          ></AnimeCard>
           <div className="text-center flex ">
-            {" "}
             <div className="m-auto">
               <p className="font-bold text-xl">Which one is more popular?</p>
-
               <div className="grid grid-cols-1 px-10 gap-4 pt-6">
                 <button
                   onClick={() => verifyAnswer(pointsCounter, 0)}
@@ -95,7 +83,6 @@ function App() {
                 >
                   {animes[0].title}
                 </button>
-
                 <button
                   onClick={() => verifyAnswer(pointsCounter, 1)}
                   className="bg-transparent hover:bg-red-400 text-red-600 font-semibold hover:text-white py-2 px-4 border border-red-400 hover:border-transparent rounded"
@@ -106,20 +93,10 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="flex bg-red-100 p-10 shadow-lg rounded">
-            {" "}
-            <div className="m-auto">
-              <img className="mx-auto" alt="" src={animes[1].image_url}></img>
-              <p className="text-center text-lg font-bold pt-6">
-                {animes[1].title}
-              </p>{" "}
-              <p className="hidden md:block text-center pt-2">
-                {animes[1].synopsis !== null
-                  ? animes[1].synopsis.substring(0, 240) + "..."
-                  : ""}
-              </p>
-            </div>
-          </div>
+          <AnimeCard
+            anime={animes[1]}
+            classParam="flex bg-red-100 p-10 shadow-lg rounded"
+          ></AnimeCard>
         </div>
       ) : (
         ""
