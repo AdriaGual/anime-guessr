@@ -3,6 +3,8 @@ import axios from "axios";
 import { css } from "@emotion/core";
 import BounceLoader from "react-spinners/BounceLoader";
 import AnimeCard from "../components/AnimeCard";
+import NavBar from "../components/NavBar";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -11,16 +13,12 @@ function getRandomInt(max) {
 const override = css`
   display: block;
   margin: 0 auto;
-  border-color: red;
 `;
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [animes, setAnimes] = useState([]);
   const [pointsCounter, setPointsCounter] = useState(0);
-
-  let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("#ffffff");
 
   function verifyAnswer(points, option) {
     var answer;
@@ -70,8 +68,8 @@ function App() {
       <div className="flex h-screen">
         <div className="m-auto">
           <BounceLoader
-            color={color}
-            loading={loading}
+            color="#ffffff"
+            loading="true"
             css={override}
             size={150}
           />
@@ -81,8 +79,10 @@ function App() {
   }
 
   return (
-    <div className="flex h-screen">
-      <div className="m-auto px-10">
+    <Router>
+      <NavBar></NavBar>
+
+      <div className="px-10 py-20">
         {animes.length === 2 ? (
           <div className="grid grid-cols-3 h-full">
             <AnimeCard
@@ -91,7 +91,7 @@ function App() {
             ></AnimeCard>
             <div className=" text-center">
               <p className="font-bold text-3xl text-gray-50">
-                Which one is more popular?
+                Which anime is more popular?
               </p>
               <div className="grid grid-cols-1 px-10 gap-4 pt-6">
                 <button
@@ -121,7 +121,7 @@ function App() {
           ""
         )}
       </div>
-    </div>
+    </Router>
   );
 }
 
