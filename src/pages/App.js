@@ -66,41 +66,43 @@ function App() {
   }
 
   return (
-    <div className="p-10">
-      {animes.length === 2 ? (
-        <div className="grid grid-cols-3 h-full">
-          <AnimeCard
-            anime={animes[0]}
-            classParam="flex bg-blue-100 p-10 shadow-lg rounded"
-          ></AnimeCard>
-          <div className="text-center flex ">
-            <div className="m-auto">
-              <p className="font-bold text-xl">Which one is more popular?</p>
-              <div className="grid grid-cols-1 px-10 gap-4 pt-6">
-                <button
-                  onClick={() => verifyAnswer(pointsCounter, 0)}
-                  className="bg-transparent hover:bg-blue-400 text-blue-600 font-semibold hover:text-white py-2 px-4 border border-blue-400 hover:border-transparent rounded"
-                >
-                  {animes[0].title}
-                </button>
-                <button
-                  onClick={() => verifyAnswer(pointsCounter, 1)}
-                  className="bg-transparent hover:bg-red-400 text-red-600 font-semibold hover:text-white py-2 px-4 border border-red-400 hover:border-transparent rounded"
-                >
-                  {animes[1].title}
-                </button>
-                {pointsCounter}
+    <div className="flex h-screen">
+      <div className="m-auto px-10">
+        {animes.length === 2 ? (
+          <div className="grid grid-cols-3 h-full">
+            <AnimeCard
+              anime={animes[0]}
+              classParam="flex bg-blue-100 p-10 shadow-lg rounded"
+            ></AnimeCard>
+            <div className="flex text-center">
+              <div className="m-auto">
+                <p className="font-bold text-xl">Which one is more popular?</p>
+                <div className="grid grid-cols-1 px-10 gap-4 pt-6">
+                  <button
+                    onClick={() => verifyAnswer(pointsCounter, 0)}
+                    className="bg-transparent hover:bg-blue-400 text-blue-600 font-semibold hover:text-white py-2 px-4 border border-blue-400 hover:border-transparent rounded"
+                  >
+                    {animes[0].title}
+                  </button>
+                  <button
+                    onClick={() => verifyAnswer(pointsCounter, 1)}
+                    className="bg-transparent hover:bg-red-400 text-red-600 font-semibold hover:text-white py-2 px-4 border border-red-400 hover:border-transparent rounded"
+                  >
+                    {animes[1].title}
+                  </button>
+                  {pointsCounter}
+                </div>
               </div>
             </div>
+            <AnimeCard
+              anime={animes[1]}
+              classParam="flex bg-red-100 p-10 shadow-lg rounded"
+            ></AnimeCard>
           </div>
-          <AnimeCard
-            anime={animes[1]}
-            classParam="flex bg-red-100 p-10 shadow-lg rounded"
-          ></AnimeCard>
-        </div>
-      ) : (
-        ""
-      )}
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 }
