@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import ClipLoader from "react-spinners/ClipLoader";
+import { css } from "@emotion/core";
+import BounceLoader from "react-spinners/BounceLoader";
 import AnimeCard from "../components/AnimeCard";
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [animes, setAnimes] = useState([]);
   const [pointsCounter, setPointsCounter] = useState(0);
+
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#ffffff");
 
   function verifyAnswer(points, option) {
     var answer;
@@ -59,7 +69,12 @@ function App() {
     return (
       <div className="flex h-screen">
         <div className="m-auto">
-          <ClipLoader size={150} />
+          <BounceLoader
+            color={color}
+            loading={loading}
+            css={override}
+            size={150}
+          />
         </div>
       </div>
     );
@@ -74,24 +89,27 @@ function App() {
               anime={animes[0]}
               classParam="flex bg-blue-100 p-10 shadow-lg rounded"
             ></AnimeCard>
-            <div className="flex text-center">
-              <div className="m-auto">
-                <p className="font-bold text-xl">Which one is more popular?</p>
-                <div className="grid grid-cols-1 px-10 gap-4 pt-6">
-                  <button
-                    onClick={() => verifyAnswer(pointsCounter, 0)}
-                    className="bg-transparent hover:bg-blue-400 text-blue-600 font-semibold hover:text-white py-2 px-4 border border-blue-400 hover:border-transparent rounded"
-                  >
-                    {animes[0].title}
-                  </button>
-                  <button
-                    onClick={() => verifyAnswer(pointsCounter, 1)}
-                    className="bg-transparent hover:bg-red-400 text-red-600 font-semibold hover:text-white py-2 px-4 border border-red-400 hover:border-transparent rounded"
-                  >
-                    {animes[1].title}
-                  </button>
-                  {pointsCounter}
-                </div>
+            <div className=" text-center">
+              <p className="font-bold text-3xl text-gray-50">
+                Which one is more popular?
+              </p>
+              <div className="grid grid-cols-1 px-10 gap-4 pt-6">
+                <button
+                  onClick={() => verifyAnswer(pointsCounter, 0)}
+                  className="bg-gray-50 hover:bg-blue-400 text-blue-600 font-semibold hover:text-white py-4 border-4 border-blue-400 hover:border-transparent rounded-full"
+                >
+                  {animes[0].title}
+                </button>
+                <button
+                  onClick={() => verifyAnswer(pointsCounter, 1)}
+                  className="bg-gray-50 hover:bg-red-400 text-red-600 font-semibold hover:text-white py-4 border-4 border-red-400 hover:border-transparent rounded-full"
+                >
+                  {animes[1].title}
+                </button>
+
+                <p class="font-bold text-gray-50 text-3xl">
+                  Score: {pointsCounter}
+                </p>
               </div>
             </div>
             <AnimeCard
