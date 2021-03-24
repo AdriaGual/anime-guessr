@@ -64,7 +64,6 @@ function PopularAnimeGame() {
         const result = await axios(
           "https://api.jikan.moe/v3/anime/" + getRandomInt(15000)
         );
-        console.log(result.data);
         if (result.data.rank == null) {
           fetchAnime();
         } else {
@@ -92,6 +91,7 @@ function PopularAnimeGame() {
       </div>
     );
   }
+
   return (
     <div className="h-full">
       <div className="topRight font-bold text-2xl text-gray-50 p-10">
@@ -100,11 +100,11 @@ function PopularAnimeGame() {
 
       <button
         onClick={() => history.push("/")}
-        class="topLeft bg-black bg-opacity-50 hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-700 py-4 px-10 border-4 border-gray-200 hover:border-transparent rounded-xl m-10"
+        class="topLeft bg-black bg-opacity-50 hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-700 py-2 px-10  border-gray-200 border-transparent rounded-full m-10"
       >
         <>
           <HiHome size={20} className="inline-block" />
-          <p className="pl-2 inline-block align-middle text-lg">Inicio</p>
+          <p className="pl-2 inline-block align-middle text-lg">Home</p>
         </>
       </button>
       <div className="grid md:grid-cols-2 h-full">
@@ -122,7 +122,7 @@ function PopularAnimeGame() {
       <div className="centered md:w-96">
         {rightAnswer || wrongAnswer ? (
           <div>
-            <p className="text-left font-extrabold text-yellow-400 text-3xl">
+            <p className="text-left font-bold text-yellow-400 text-3xl">
               Rank {animes[0].rank}
             </p>
           </div>
@@ -153,7 +153,7 @@ function PopularAnimeGame() {
         )}
         {rightAnswer || wrongAnswer ? (
           <div>
-            <p className="text-right font-extrabold text-yellow-400 text-3xl">
+            <p className="text-right font-bold text-yellow-400 text-3xl">
               Rank {animes[1].rank}
             </p>
           </div>

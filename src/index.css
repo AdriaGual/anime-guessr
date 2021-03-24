@@ -10,7 +10,11 @@
       rgba(196, 113, 237, 0.5),
       rgba(246, 79, 89, 0.5)
     ),
-    url("./images/pattern.png");
+    url("./images/pattern2.png");
+}
+
+.mainBG {
+  background-image: url("./images/pattern2.png");
 }
 
 .blurredBG {
