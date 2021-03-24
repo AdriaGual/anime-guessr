@@ -42,8 +42,12 @@ function PopularAnimeGame() {
     function fetch2ndAnime(response) {
       axios.get(`https://api.jikan.moe/v3/anime/` + getRandomInt(10000)).then(
         (res2) => {
-          setAnimes([response, res2.data]);
-          setIsLoading(false);
+          if (res2.data.rank == null) {
+            fetch2ndAnime(response);
+          } else {
+            setAnimes([response, res2.data]);
+            setIsLoading(false);
+          }
         },
         function (error) {
           fetch2ndAnime(response);
@@ -56,8 +60,13 @@ function PopularAnimeGame() {
         const result = await axios(
           "https://api.jikan.moe/v3/anime/" + getRandomInt(10000)
         );
-        var response = result.data;
-        fetch2ndAnime(response);
+        console.log(result.data);
+        if (result.data.rank == null) {
+          fetchAnime();
+        } else {
+          var response = result.data;
+          fetch2ndAnime(response);
+        }
       } catch (error) {
         fetchAnime();
       }
@@ -85,7 +94,8 @@ function PopularAnimeGame() {
         <div className="grid grid-cols-3 h-full">
           <AnimeCard
             anime={animes[0]}
-            classParam="flex bg-blue-100 p-10 shadow-lg rounded"
+            classParam="flex bg-blue-100 p-10 shadow-lg rounded-3xl"
+            showRank={wrongAnswer || rightAnswer}
           ></AnimeCard>
           <div className=" text-center">
             <p className="font-bold text-3xl text-gray-50">
@@ -129,7 +139,8 @@ function PopularAnimeGame() {
           </div>
           <AnimeCard
             anime={animes[1]}
-            classParam="flex bg-red-100 p-10 shadow-lg rounded"
+            classParam="flex bg-red-100 p-10 shadow-lg rounded-3xl"
+            showRank={wrongAnswer || rightAnswer}
           ></AnimeCard>
         </div>
       ) : (
