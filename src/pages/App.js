@@ -11,13 +11,8 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <TopPanel></TopPanel>
-          <div class="grid grid-cols-6">
-            <LeftPanel></LeftPanel>
-            <div class="col-span-5">
-              <HeroPanel></HeroPanel>
-            </div>
-          </div>
+          <NavBar></NavBar>
+          <HeroPanel></HeroPanel>
         </Route>
         <Route exact path="/game">
           <div className="flex flex-col h-screen bodyBG">

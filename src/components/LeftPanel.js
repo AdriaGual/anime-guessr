@@ -11,18 +11,7 @@ import chihiroLogo from "../images/chihiro.svg";
 function LeftPanel() {
   return (
     <div className="p-10 shadow-xl h-screen hidden md:block border-r-2 border-gray-300">
-      <>
-        <img
-          src={chihiroLogo}
-          width="35"
-          alt="hatLogo"
-          className="inline-block"
-        ></img>
-        <p className="text-lg font-bold inline-block pl-2 align-middle">
-          AnimeGuessr
-        </p>
-      </>
-      <div className="pt-6">
+      <div className="">
         <Link to="/">
           {useLocation().pathname.endsWith("/") ? (
             <>
