@@ -31,12 +31,12 @@ function PopularAnimeGame() {
       setTimeout(() => {
         setIsLoading(true);
         setPointsCounter(points);
-      }, 5000);
+      }, 3000);
     } else {
       setWrongAnswer(true);
       setTimeout(() => {
-        history.push("/end");
-      }, 5000);
+        history.push("/");
+      }, 3000);
     }
   };
 
@@ -44,7 +44,7 @@ function PopularAnimeGame() {
     setRightAnswer(false);
     setWrongAnswer(false);
     function fetch2ndAnime(response) {
-      axios.get(`https://api.jikan.moe/v3/anime/` + getRandomInt(10000)).then(
+      axios.get(`https://api.jikan.moe/v3/anime/` + getRandomInt(15000)).then(
         (res2) => {
           if (res2.data.rank == null) {
             fetch2ndAnime(response);
@@ -62,7 +62,7 @@ function PopularAnimeGame() {
     const fetchAnime = async () => {
       try {
         const result = await axios(
-          "https://api.jikan.moe/v3/anime/" + getRandomInt(10000)
+          "https://api.jikan.moe/v3/anime/" + getRandomInt(15000)
         );
         console.log(result.data);
         if (result.data.rank == null) {
@@ -98,7 +98,10 @@ function PopularAnimeGame() {
         Score: {pointsCounter}
       </div>
 
-      <button class="topLeft bg-black bg-opacity-50 hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-700 py-4 px-10 border-4 border-gray-200 hover:border-transparent rounded-xl m-10">
+      <button
+        onClick={() => history.push("/")}
+        class="topLeft bg-black bg-opacity-50 hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-700 py-4 px-10 border-4 border-gray-200 hover:border-transparent rounded-xl m-10"
+      >
         <>
           <HiHome size={20} className="inline-block" />
           <p className="pl-2 inline-block align-middle text-lg">Inicio</p>

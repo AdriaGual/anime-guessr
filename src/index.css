@@ -3,7 +3,7 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap");
 
-body {
+.bodyBG {
   background-image: linear-gradient(
       to right,
       rgba(18, 194, 233, 0.5),

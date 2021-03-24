@@ -8,12 +8,12 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <div className="flex flex-col h-screen">
+          <h1>donete</h1>
+        </Route>
+        <Route exact path="/game">
+          <div className="flex flex-col h-screen bodyBG">
             <PopularAnimeGame></PopularAnimeGame>
           </div>
-        </Route>
-        <Route exact path="/end">
-          <h1>donete</h1>
         </Route>
       </Switch>
     </Router>
