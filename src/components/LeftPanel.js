@@ -6,12 +6,23 @@ import {
   HiNewspaper,
 } from "react-icons/hi";
 import { Link, useLocation } from "react-router-dom";
-import chihiroLogo from "../images/chihiro.svg";
+import chihiroLogo from "../images/neko.svg";
 
 function LeftPanel() {
   return (
     <div className="p-10 shadow-xl h-screen hidden md:block border-r-2 border-gray-300">
-      <div className="">
+      <>
+        <img
+          src={chihiroLogo}
+          width="40"
+          alt="hatLogo"
+          className="inline-block"
+        ></img>
+        <p className="text-lg font-bold inline-block align-middle pl-2">
+          AnimeGuessr
+        </p>
+      </>
+      <div className="pt-6">
         <Link to="/">
           {useLocation().pathname.endsWith("/") ? (
             <>

@@ -1,6 +1,7 @@
 import errorAnswer from "../images/lottie/error.json";
 import successAnswer from "../images/lottie/success.json";
 import { css } from "@emotion/core";
+
 export function isRightAnswer(selectedOption, animes) {
   var answer;
   if (animes[0].rank < animes[1].rank) {

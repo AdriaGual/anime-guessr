@@ -11,8 +11,13 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <NavBar></NavBar>
-          <HeroPanel></HeroPanel>
+          <TopPanel></TopPanel>
+          <div class="grid grid-cols-5 md:grid-cols-6">
+            <LeftPanel></LeftPanel>
+            <div class="col-span-5">
+              <HeroPanel></HeroPanel>
+            </div>
+          </div>
         </Route>
         <Route exact path="/trendGame">
           <div className="flex flex-col h-screen bodyBG">
