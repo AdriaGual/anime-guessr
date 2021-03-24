@@ -6,7 +6,7 @@ function HeroPanel() {
   let history = useHistory();
 
   return (
-    <div className="flex flex-col h-screen ">
+    <div className="flex flex-col">
       <div class="flex p-10 ">
         <div class="my-auto w-full ">
           <div class="mainBG w-full rounded p-10 shadow-lg">
@@ -16,7 +16,7 @@ function HeroPanel() {
               MyAnimeList
             </p>
             <button
-              onClick={() => history.push("/game")}
+              onClick={() => history.push("/trendGame")}
               class="bg-green-600 hover:bg-green-700 text-gray-100 font-semibold py-2 px-20 border-4  border-transparent rounded-full mt-4"
             >
               <>

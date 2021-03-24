@@ -19,6 +19,12 @@ function NavBar() {
             className="inline-block text-gray-100 dark:text-gray-300 hover:text-white mr-4"
           >
             Home
+          </Link>{" "}
+          <Link
+            to="/rankings"
+            className="inline-block text-gray-100 dark:text-gray-300 hover:text-white mr-4"
+          >
+            Rankings
           </Link>
         </div>
       </div>

@@ -14,10 +14,13 @@ function App() {
           <NavBar></NavBar>
           <HeroPanel></HeroPanel>
         </Route>
-        <Route exact path="/game">
+        <Route exact path="/trendGame">
           <div className="flex flex-col h-screen bodyBG">
             <PopularAnimeGame></PopularAnimeGame>
           </div>
+        </Route>
+        <Route exact path="/rankings">
+          <p>ldfghb</p>
         </Route>
       </Switch>
     </Router>
