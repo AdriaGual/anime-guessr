@@ -104,7 +104,7 @@ function PopularAnimeGame(props) {
 
       <button
         onClick={() => history.push("/")}
-        class="topLeft bg-black bg-opacity-50 hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-700 py-2 px-10  border-gray-200 border-transparent rounded-full m-10"
+        className="topLeft bg-black bg-opacity-50 hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-700 py-2 px-10  border-gray-200 border-transparent rounded-full m-10"
       >
         <>
           <HiHome size={20} className="inline-block" />
@@ -139,7 +139,7 @@ function PopularAnimeGame(props) {
             src={battleLogo}
             width="90"
             alt="hatLogo"
-            class="hidden md:block centered"
+            className="hidden md:block centered"
           ></img>
         ) : (
           ""

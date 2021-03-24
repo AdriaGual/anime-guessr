@@ -1,13 +1,7 @@
 import React from "react";
-import {
-  HiHome,
-  HiOutlineHome,
-  HiOutlineNewspaper,
-  HiNewspaper,
-} from "react-icons/hi";
-import { Link, useLocation } from "react-router-dom";
 import chihiroLogo from "../images/neko.svg";
 import { FaGithub, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+
 function LeftPanel() {
   return (
     <div className="p-10 shadow-xl h-screen hidden md:block border-r-2 border-gray-300">

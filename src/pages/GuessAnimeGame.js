@@ -141,7 +141,7 @@ function GuessAnimeGame(props) {
       }
     };
     fetchAnime();
-  }, [pointsCounter]);
+  }, [pointsCounter, props.type]);
 
   if (isLoading) {
     return (
@@ -159,11 +159,11 @@ function GuessAnimeGame(props) {
   }
 
   return (
-    <div class="p-10">
-      <div class="grid grid-cols-2">
+    <div className="p-10">
+      <div className="grid grid-cols-2">
         <button
           onClick={() => history.push("/")}
-          class="bg-black bg-opacity-50 hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-700 py-2 border-gray-200 border-transparent rounded-full w-40"
+          className="bg-black bg-opacity-50 hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-700 py-2 border-gray-200 border-transparent rounded-full w-40"
         >
           <>
             <HiHome size={20} className="inline-block" />
@@ -175,19 +175,19 @@ function GuessAnimeGame(props) {
         </div>
       </div>
 
-      <div class="pt-10">
+      <div className="pt-10">
         {console.log(selectedAnime)}
-        <p class="font-bold">
+        <p className="font-bold">
           {selectedAnime.published !== undefined
             ? selectedAnime.published.string
             : ""}
           {selectedAnime.aired !== undefined ? selectedAnime.aired.string : ""}
         </p>
-        <p class="pt-4">{selectedAnime.synopsis}</p>
-        <p class="pt-4">{selectedAnime.rating}</p>
+        <p className="pt-4">{selectedAnime.synopsis}</p>
+        <p className="pt-4">{selectedAnime.rating}</p>
         <p>{selectedAnime.source}</p>
         <p>{selectedAnime.rank}</p>{" "}
-        <div class="block md:grid md:grid-cols-3 lg:grid-cols-5 px-40 pt-20">
+        <div className="block md:grid md:grid-cols-3 lg:grid-cols-5 px-40 pt-20">
           {animes.map((value, index) => {
             console.log(value);
             return (
@@ -201,7 +201,7 @@ function GuessAnimeGame(props) {
           })}
         </div>
       </div>
-      <div class="centered">
+      <div className="centered">
         {" "}
         {rightAnswer ? (
           <Lottie options={defaultSuccessOptions} height={200} width={200} />

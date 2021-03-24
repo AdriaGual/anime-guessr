@@ -1,5 +1,4 @@
 import React from "react";
-import NavBar from "../components/NavBar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PopularAnimeGame from "./PopularAnimeGame";
 import LeftPanel from "../components/LeftPanel";
@@ -13,9 +12,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <TopPanel></TopPanel>
-          <div class="grid grid-cols-5 md:grid-cols-6 ">
+          <div className="grid grid-cols-5 md:grid-cols-6 ">
             <LeftPanel></LeftPanel>
-            <div class="col-span-5">
+            <div className="col-span-5">
               <HeroPanel></HeroPanel>
             </div>
           </div>
