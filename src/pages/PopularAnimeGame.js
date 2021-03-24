@@ -11,6 +11,8 @@ import {
   bounceLoaderOverride,
 } from "../utils/commonUtils";
 import Lottie from "react-lottie";
+import battleLogo from "../images/espadas.svg";
+import { HiHome } from "react-icons/hi";
 
 function PopularAnimeGame() {
   const [isLoading, setIsLoading] = useState(true);
@@ -95,6 +97,13 @@ function PopularAnimeGame() {
       <div className="topRight font-bold text-3xl text-gray-50 p-10">
         Score: {pointsCounter}
       </div>
+
+      <button class="topLeft bg-black bg-opacity-50 hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-700 py-4 px-10 border-4 border-gray-200 hover:border-transparent rounded-xl m-10">
+        <>
+          <HiHome size={20} className="inline-block" />
+          <p className="pl-2 inline-block align-middle">Inicio</p>
+        </>
+      </button>
       <div className="grid md:grid-cols-2 h-full">
         <AnimeCard
           anime={animes[0]}
@@ -114,6 +123,17 @@ function PopularAnimeGame() {
               Rank {animes[0].rank}
             </p>
           </div>
+        ) : (
+          ""
+        )}
+
+        {!(rightAnswer || wrongAnswer) ? (
+          <img
+            src={battleLogo}
+            width="90"
+            alt="hatLogo"
+            class="hidden md:block centered"
+          ></img>
         ) : (
           ""
         )}
