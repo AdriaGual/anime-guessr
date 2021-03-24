@@ -86,7 +86,7 @@ function PopularAnimeGame(props) {
       <div className="flex h-screen">
         <div className="m-auto">
           <BounceLoader
-            color="#ffffff"
+            color="#c471ed"
             loading="true"
             css={bounceLoaderOverride}
             size={150}

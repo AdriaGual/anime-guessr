@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 function BannerCard(props) {
   let history = useHistory();
+
   return (
     <div class="mainBG w-full rounded shadow-lg">
       <div class="grid grid-cols-2">
@@ -21,7 +22,7 @@ function BannerCard(props) {
           </button>
         </div>
 
-        <div className="bg-yellow-600 full-w"></div>
+        <div className={props.banner}></div>
       </div>
     </div>
   );

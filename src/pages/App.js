@@ -12,7 +12,7 @@ function App() {
       <Switch>
         <Route exact path="/">
           <TopPanel></TopPanel>
-          <div class="grid grid-cols-5 md:grid-cols-6">
+          <div class="grid grid-cols-5 md:grid-cols-6 ">
             <LeftPanel></LeftPanel>
             <div class="col-span-5">
               <HeroPanel></HeroPanel>

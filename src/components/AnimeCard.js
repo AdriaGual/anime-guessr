@@ -3,7 +3,7 @@ import React from "react";
 function AnimeCard(props) {
   return (
     <div
-      className="flex hover:opacity-50 cursor-pointer"
+      className="flex hover:opacity-90 cursor-pointer"
       style={{
         background: "url(" + props.anime.image_url + ")",
         backgroundSize: "cover",
