@@ -19,9 +19,14 @@ function App() {
             </div>
           </div>
         </Route>
-        <Route exact path="/trendGame">
+        <Route exact path="/trendAnime">
           <div className="flex flex-col h-screen bodyBG">
-            <PopularAnimeGame></PopularAnimeGame>
+            <PopularAnimeGame type="anime"></PopularAnimeGame>
+          </div>
+        </Route>
+        <Route exact path="/trendManga">
+          <div className="flex flex-col h-screen bodyBG">
+            <PopularAnimeGame type="manga"></PopularAnimeGame>
           </div>
         </Route>
         <Route exact path="/rankings">

@@ -14,7 +14,7 @@ import Lottie from "react-lottie";
 import battleLogo from "../images/espadas.svg";
 import { HiHome } from "react-icons/hi";
 
-function PopularAnimeGame() {
+function PopularAnimeGame(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [animes, setAnimes] = useState([]);
   const [pointsCounter, setPointsCounter] = useState(0);
@@ -44,25 +44,29 @@ function PopularAnimeGame() {
     setRightAnswer(false);
     setWrongAnswer(false);
     function fetch2ndAnime(response) {
-      axios.get(`https://api.jikan.moe/v3/anime/` + getRandomInt(15000)).then(
-        (res2) => {
-          if (res2.data.rank == null) {
+      axios
+        .get(
+          "https://api.jikan.moe/v3/" + props.type + "/" + getRandomInt(15000)
+        )
+        .then(
+          (res2) => {
+            if (res2.data.rank == null) {
+              fetch2ndAnime(response);
+            } else {
+              setAnimes([response, res2.data]);
+              setIsLoading(false);
+            }
+          },
+          function (error) {
             fetch2ndAnime(response);
-          } else {
-            setAnimes([response, res2.data]);
-            setIsLoading(false);
           }
-        },
-        function (error) {
-          fetch2ndAnime(response);
-        }
-      );
+        );
     }
 
     const fetchAnime = async () => {
       try {
         const result = await axios(
-          "https://api.jikan.moe/v3/anime/" + getRandomInt(15000)
+          "https://api.jikan.moe/v3/" + props.type + "/" + getRandomInt(15000)
         );
         if (result.data.rank == null) {
           fetchAnime();
