@@ -27,7 +27,7 @@ function HeroPanel() {
             page="/trendManga"
             banner="mangaBanner"
           ></BannerCard>
-          <div class="pt-6"></div>
+          {/*<div class="pt-6"></div>
           <BannerCard
             title="Guess the anime"
             description="A frustratingly addictive game of anime guessing"
@@ -40,7 +40,7 @@ function HeroPanel() {
             description="A frustratingly addictive game of manga guessing"
             page="/guessManga"
             banner="mangaBanner"
-          ></BannerCard>
+  ></BannerCard>*/}
         </div>
       </div>
     </div>
