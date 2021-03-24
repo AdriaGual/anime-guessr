@@ -94,7 +94,7 @@ function PopularAnimeGame() {
   }
   return (
     <div className="h-full">
-      <div className="topRight font-bold text-3xl text-gray-50 p-10">
+      <div className="topRight font-bold text-2xl text-gray-50 p-10">
         Score: {pointsCounter}
       </div>
 
