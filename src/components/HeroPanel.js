@@ -29,9 +29,16 @@ function HeroPanel() {
           ></BannerCard>
           <div class="pt-6"></div>
           <BannerCard
-            title="Guess the opening"
-            description="A frustratingly addictive game of music openings guessing"
-            page="/guessOpening"
+            title="Guess the anime"
+            description="A frustratingly addictive game of anime guessing"
+            page="/guessAnime"
+            banner="animeBanner"
+          ></BannerCard>{" "}
+          <div class="pt-6"></div>
+          <BannerCard
+            title="Guess the manga"
+            description="A frustratingly addictive game of manga guessing"
+            page="/guessManga"
             banner="mangaBanner"
           ></BannerCard>
         </div>

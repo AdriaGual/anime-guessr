@@ -9,9 +9,7 @@ export function isRightAnswer(selectedOption, animes) {
   } else {
     answer = "1";
   }
-
-  return true;
-  //return selectedOption === answer;
+  return selectedOption === answer;
 }
 
 export const defaultErrorOptions = {
@@ -40,3 +38,14 @@ export const bounceLoaderOverride = css`
   display: block;
   margin: 0 auto;
 `;
+
+export function shuffle(arr) {
+  var i, j, temp;
+  for (i = arr.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+  return arr;
+}

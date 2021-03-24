@@ -5,6 +5,7 @@ import PopularAnimeGame from "./PopularAnimeGame";
 import LeftPanel from "../components/LeftPanel";
 import TopPanel from "../components/TopPanel";
 import HeroPanel from "../components/HeroPanel";
+import GuessAnimeGame from "./GuessAnimeGame";
 
 function App() {
   return (
@@ -27,6 +28,16 @@ function App() {
         <Route exact path="/trendManga">
           <div className="flex flex-col h-screen bodyBG">
             <PopularAnimeGame type="manga"></PopularAnimeGame>
+          </div>
+        </Route>
+        <Route exact path="/guessAnime">
+          <div className="flex flex-col h-screen bodyBG">
+            <GuessAnimeGame type="anime"></GuessAnimeGame>
+          </div>
+        </Route>
+        <Route exact path="/guessManga">
+          <div className="flex flex-col h-screen bodyBG">
+            <GuessAnimeGame type="manga"></GuessAnimeGame>
           </div>
         </Route>
         <Route exact path="/rankings">

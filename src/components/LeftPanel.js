@@ -46,13 +46,13 @@ function LeftPanel() {
             <>
               <HiNewspaper size={20} className="inline-block text-purple-700" />
               <p className="pl-2 inline-block align-middle font-semibold">
-                Capítulos
+                LeaderBoards
               </p>
             </>
           ) : (
             <>
               <HiOutlineNewspaper size={20} className="inline-block" />
-              <p className="pl-2 inline-block align-middle">Capítulos</p>
+              <p className="pl-2 inline-block align-middle">Leaderboard</p>
             </>
           )}
         </Link>

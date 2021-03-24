@@ -79,7 +79,7 @@ function PopularAnimeGame(props) {
       }
     };
     fetchAnime();
-  }, [pointsCounter]);
+  }, [pointsCounter, props.type]);
 
   if (isLoading) {
     return (
