@@ -24,19 +24,21 @@ function PopularAnimeGame(props) {
   let history = useHistory();
 
   const verifyAnswer = (option) => {
-    if (isRightAnswer(option, animes)) {
-      var points = pointsCounter;
-      points++;
-      setRightAnswer(true);
-      setTimeout(() => {
-        setIsLoading(true);
-        setPointsCounter(points);
-      }, 3000);
-    } else {
-      setWrongAnswer(true);
-      /* setTimeout(() => {
-        history.push("/");
-      }, 3000);*/
+    if (!wrongAnswer && !rightAnswer) {
+      if (isRightAnswer(option, animes)) {
+        var points = pointsCounter;
+        points++;
+        setRightAnswer(true);
+        setTimeout(() => {
+          setIsLoading(true);
+          setPointsCounter(points);
+        }, 3000);
+      } else {
+        setWrongAnswer(true);
+        /* setTimeout(() => {
+          history.push("/");
+        }, 3000);*/
+      }
     }
   };
 
