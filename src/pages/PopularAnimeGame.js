@@ -34,9 +34,9 @@ function PopularAnimeGame(props) {
       }, 3000);
     } else {
       setWrongAnswer(true);
-      setTimeout(() => {
+      /* setTimeout(() => {
         history.push("/");
-      }, 3000);
+      }, 3000);*/
     }
   };
 

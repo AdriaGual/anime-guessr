@@ -5,6 +5,7 @@ import {
   HiOutlineNewspaper,
   HiNewspaper,
 } from "react-icons/hi";
+import chihiroLogo from "../images/neko.svg";
 export class TopPanel extends Component {
   render() {
     return (
@@ -13,33 +14,20 @@ export class TopPanel extends Component {
           <div>
             {window.location.pathname.match("/") ? (
               <>
-                <HiHome size={20} className="inline-block text-purple-700" />
+                <img
+                  src={chihiroLogo}
+                  width="40"
+                  alt="hatLogo"
+                  className="inline-block"
+                ></img>
                 <p className="pl-2 inline-block align-middle font-semibold">
-                  Home
+                  AnimeGuesser
                 </p>
               </>
             ) : (
               <>
                 <HiOutlineHome size={20} className="inline-block" />
                 <p className="pl-2 inline-block align-middle">Home</p>
-              </>
-            )}
-          </div>
-          <div>
-            {window.location.pathname.match("/content") ? (
-              <>
-                <HiNewspaper
-                  size={20}
-                  className="inline-block text-purple-700"
-                />
-                <p className="pl-2 inline-block align-middle font-semibold">
-                  Capítulos
-                </p>
-              </>
-            ) : (
-              <>
-                <HiOutlineNewspaper size={20} className="inline-block" />
-                <p className="pl-2 inline-block align-middle">Capítulos</p>
               </>
             )}
           </div>
