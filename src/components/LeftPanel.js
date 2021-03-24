@@ -1,6 +1,6 @@
 import React from "react";
 import chihiroLogo from "../images/neko.svg";
-import { FaGithub, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 function LeftPanel() {
   return (
