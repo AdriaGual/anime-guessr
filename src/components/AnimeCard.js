@@ -11,9 +11,9 @@ function AnimeCard(props) {
       onClick={() => props.verifyAnswer(props.option)}
     >
       <div class="flex blurredBG p-20 w-full">
-        <div className="m-auto text-center ">
+        <div className="m-auto text-center">
           <img
-            className="mx-auto rounded-lg pb-6"
+            className="mx-auto rounded-lg mb-6"
             alt=""
             src={props.anime.image_url}
           ></img>
@@ -27,8 +27,6 @@ function AnimeCard(props) {
                 : ""}
             </p>
           </div>
-
-          {props.showRank ? <p>{props.anime.rank}</p> : ""}
         </div>
       </div>
     </div>

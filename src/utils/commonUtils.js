@@ -4,16 +4,17 @@ import { css } from "@emotion/core";
 export function isRightAnswer(selectedOption, animes) {
   var answer;
   if (animes[0].rank < animes[1].rank) {
-    answer = 0;
+    answer = "0";
   } else {
-    answer = 1;
+    answer = "1";
   }
 
-  return selectedOption == answer;
+  return true;
+  //return selectedOption === answer;
 }
 
 export const defaultErrorOptions = {
-  loop: true,
+  loop: false,
   autoplay: true,
   animationData: errorAnswer,
   rendererSettings: {
@@ -22,7 +23,7 @@ export const defaultErrorOptions = {
 };
 
 export const defaultSuccessOptions = {
-  loop: true,
+  loop: false,
   autoplay: true,
   animationData: successAnswer,
   rendererSettings: {

@@ -10,6 +10,8 @@ import {
   getRandomInt,
   bounceLoaderOverride,
 } from "../utils/commonUtils";
+import Lottie from "react-lottie";
+
 function PopularAnimeGame() {
   const [isLoading, setIsLoading] = useState(true);
   const [animes, setAnimes] = useState([]);
@@ -27,12 +29,12 @@ function PopularAnimeGame() {
       setTimeout(() => {
         setIsLoading(true);
         setPointsCounter(points);
-      }, 3000);
+      }, 5000);
     } else {
       setWrongAnswer(true);
       setTimeout(() => {
         history.push("/end");
-      }, 3000);
+      }, 5000);
     }
   };
 
@@ -89,20 +91,53 @@ function PopularAnimeGame() {
     );
   }
   return (
-    <div className="grid grid-cols-2 h-full">
-      {" "}
-      <AnimeCard
-        anime={animes[0]}
-        showRank={wrongAnswer || rightAnswer}
-        verifyAnswer={verifyAnswer}
-        option="0"
-      ></AnimeCard>
-      <AnimeCard
-        anime={animes[1]}
-        showRank={wrongAnswer || rightAnswer}
-        verifyAnswer={verifyAnswer}
-        option="1"
-      ></AnimeCard>{" "}
+    <div className="h-full">
+      <div className="topRight font-bold text-3xl text-gray-50">
+        Score: {pointsCounter}
+      </div>
+      <div className="grid grid-cols-2 h-full">
+        <AnimeCard
+          anime={animes[0]}
+          verifyAnswer={verifyAnswer}
+          option="0"
+        ></AnimeCard>
+        <AnimeCard
+          anime={animes[1]}
+          verifyAnswer={verifyAnswer}
+          option="1"
+        ></AnimeCard>
+      </div>
+      <div className="centered md:w-96">
+        {rightAnswer || wrongAnswer ? (
+          <div>
+            <p class="text-left font-extrabold text-yellow-400 text-3xl">
+              Rank {animes[0].rank}
+            </p>
+          </div>
+        ) : (
+          ""
+        )}
+
+        {rightAnswer ? (
+          <Lottie options={defaultSuccessOptions} height={200} width={200} />
+        ) : (
+          ""
+        )}
+        {wrongAnswer ? (
+          <Lottie options={defaultErrorOptions} height={200} width={200} />
+        ) : (
+          ""
+        )}
+        {rightAnswer || wrongAnswer ? (
+          <div>
+            <p class="text-right font-extrabold text-yellow-400 text-3xl">
+              Rank {animes[1].rank}
+            </p>
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
       {/*
             <div className="grid grid-cols-3 h-full">
               <AnimeCard
