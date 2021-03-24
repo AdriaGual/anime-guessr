@@ -26,7 +26,7 @@ function LeftPanel() {
           </p>
         </div>
       </div>{" "}
-      <div className="pt-4 cursor-pointer">
+      {/*<div className="pt-4 cursor-pointer">
         {" "}
         <div
           onClick={() => window.open("https://twitter.com/walie_6", "_blank")}
@@ -66,7 +66,7 @@ function LeftPanel() {
           </p>
         </div>
       </div>
-      {/*
+      
       <div className="pt-6">
         <Link to="/">
           {useLocation().pathname.endsWith("/") ? (
