@@ -6,7 +6,6 @@ import PopularAnimeGame from "./PopularAnimeGame";
 function App() {
   return (
     <Router>
-      <NavBar></NavBar>
       <Switch>
         <Route exact path="/">
           <PopularAnimeGame></PopularAnimeGame>

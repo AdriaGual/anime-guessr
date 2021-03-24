@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BounceLoader from "react-spinners/BounceLoader";
 import AnimeCard from "../components/AnimeCard";
-import Lottie from "react-lottie";
 import { useHistory } from "react-router-dom";
 import {
   isRightAnswer,
@@ -20,8 +19,9 @@ function PopularAnimeGame() {
 
   let history = useHistory();
 
-  function verifyAnswer(points, option) {
+  function verifyAnswer(option) {
     if (isRightAnswer(option, animes)) {
+      var points = pointsCounter;
       points++;
       setRightAnswer(true);
       setTimeout(() => {
@@ -89,8 +89,23 @@ function PopularAnimeGame() {
     );
   }
   return (
-    <div className="px-10 py-20">
-      {animes.length === 2 ? (
+    <div className="">
+      <div class="flex flex-col h-screen">
+        <div class="flex h-20 bg-yellow-200"></div>{" "}
+        <div className="grid grid-cols-2 h-full">
+          {" "}
+          <AnimeCard
+            anime={animes[0]}
+            showRank={wrongAnswer || rightAnswer}
+          ></AnimeCard>
+          <AnimeCard
+            anime={animes[1]}
+            showRank={wrongAnswer || rightAnswer}
+          ></AnimeCard>
+        </div>
+      </div>
+
+      {/*
         <div className="grid grid-cols-3 h-full">
           <AnimeCard
             anime={animes[0]}
@@ -143,9 +158,7 @@ function PopularAnimeGame() {
             showRank={wrongAnswer || rightAnswer}
           ></AnimeCard>
         </div>
-      ) : (
-        ""
-      )}
+      */}
     </div>
   );
 }

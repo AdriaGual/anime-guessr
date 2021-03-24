@@ -3,13 +3,6 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap");
 
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 body {
   background-image: linear-gradient(
       to right,
@@ -18,4 +11,8 @@ body {
       rgba(246, 79, 89, 0.5)
     ),
     url("./images/pattern.png");
+}
+
+.blurredBG {
+  backdrop-filter: blur(20px);
 }
