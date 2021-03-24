@@ -9,7 +9,7 @@ function App() {
       <Switch>
         <Route exact path="/">
           {" "}
-          <div class="flex flex-col h-screen">
+          <div className="flex flex-col h-screen">
             <NavBar></NavBar>
             <PopularAnimeGame></PopularAnimeGame>
           </div>

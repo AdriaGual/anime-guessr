@@ -10,7 +10,7 @@ function AnimeCard(props) {
       }}
       onClick={() => props.verifyAnswer(props.option)}
     >
-      <div class="flex blurredBG p-20 w-full">
+      <div className="flex blurredBG p-20 w-full">
         <div className="m-auto text-center">
           <img
             className="mx-auto rounded-lg mb-6"
