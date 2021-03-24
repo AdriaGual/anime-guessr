@@ -92,10 +92,10 @@ function PopularAnimeGame() {
   }
   return (
     <div className="h-full">
-      <div className="topRight font-bold text-3xl text-gray-50">
+      <div className="topRight font-bold text-3xl text-gray-50 p-10">
         Score: {pointsCounter}
       </div>
-      <div className="grid grid-cols-2 h-full">
+      <div className="grid md:grid-cols-2 h-full">
         <AnimeCard
           anime={animes[0]}
           verifyAnswer={verifyAnswer}

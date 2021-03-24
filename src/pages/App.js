@@ -8,9 +8,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          {" "}
           <div className="flex flex-col h-screen">
-            <NavBar></NavBar>
             <PopularAnimeGame></PopularAnimeGame>
           </div>
         </Route>

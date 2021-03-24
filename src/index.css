@@ -27,7 +27,7 @@ body {
 
 .topRight {
   position: fixed;
-  top: 10%;
-  left: 90%;
+  top: 0%;
+  right: 0%;
   z-index: 10;
 }

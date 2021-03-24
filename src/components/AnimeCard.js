@@ -18,7 +18,7 @@ function AnimeCard(props) {
             src={props.anime.image_url}
           ></img>
 
-          <div className="hidden md:block bg-gray-50 p-10 rounded-lg bg-opacity-40">
+          <div className="bg-gray-50 p-10 rounded-lg bg-opacity-40">
             {" "}
             <p className="text-2xl font-bold">{props.anime.title}</p>
             <p>
