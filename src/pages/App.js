@@ -8,7 +8,11 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <PopularAnimeGame></PopularAnimeGame>
+          {" "}
+          <div class="flex flex-col h-screen">
+            <NavBar></NavBar>
+            <PopularAnimeGame></PopularAnimeGame>
+          </div>
         </Route>
         <Route exact path="/end">
           <h1>donete</h1>

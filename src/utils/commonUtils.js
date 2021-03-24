@@ -8,7 +8,8 @@ export function isRightAnswer(selectedOption, animes) {
   } else {
     answer = 1;
   }
-  return selectedOption === answer;
+
+  return selectedOption == answer;
 }
 
 export const defaultErrorOptions = {
