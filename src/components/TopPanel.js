@@ -16,7 +16,7 @@ export class TopPanel extends Component {
                   className="inline-block"
                 ></img>
                 <p className="pl-2 inline-block align-middle font-semibold">
-                  AnimeGuesser
+                  AnimeGuessr
                 </p>
               </>
             ) : (
