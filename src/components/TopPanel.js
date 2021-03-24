@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import {
-  HiHome,
-  HiOutlineHome,
-  HiOutlineNewspaper,
-  HiNewspaper,
-} from "react-icons/hi";
+import { HiOutlineHome } from "react-icons/hi";
 import chihiroLogo from "../images/neko.svg";
 export class TopPanel extends Component {
   render() {
