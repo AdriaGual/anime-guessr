@@ -12,7 +12,7 @@ function BannerCard(props) {
           <p>{props.description}</p>
           <button
             onClick={() => history.push(props.page)}
-            className="bg-purple-600 hover:bg-purple-700 text-gray-100 font-semibold py-2 px-20 border-4  border-transparent rounded-full mt-4"
+            className="bg-purple-600 hover:bg-purple-700 text-gray-100 font-semibold py-2 px-10 md:px-20 border-4  border-transparent rounded-full mt-4"
           >
             <>
               <p className="pl-2 inline-block align-middle text-lg">

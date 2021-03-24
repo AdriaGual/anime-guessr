@@ -4,7 +4,7 @@ import chihiroLogo from "../images/neko.svg";
 export class TopPanel extends Component {
   render() {
     return (
-      <div className="py-4 shadow-lg w-screen md:hidden block">
+      <div className="py-4 shadow-lg w-screen lg:hidden block">
         <div className="grid grid-cols-2 text-center">
           <div>
             {window.location.pathname.match("/") ? (

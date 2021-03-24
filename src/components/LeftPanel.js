@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa";
 
 function LeftPanel() {
   return (
-    <div className="p-10 shadow-xl h-screen hidden md:block border-r-2 border-gray-300">
+    <div className="p-10 shadow-xl h-screen hidden lg:block border-r-2 border-gray-300">
       <>
         <img
           src={chihiroLogo}
