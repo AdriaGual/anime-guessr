@@ -101,7 +101,7 @@ function PopularAnimeGame() {
       <button class="topLeft bg-black bg-opacity-50 hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-700 py-4 px-10 border-4 border-gray-200 hover:border-transparent rounded-xl m-10">
         <>
           <HiHome size={20} className="inline-block" />
-          <p className="pl-2 inline-block align-middle">Inicio</p>
+          <p className="pl-2 inline-block align-middle text-lg">Inicio</p>
         </>
       </button>
       <div className="grid md:grid-cols-2 h-full">
