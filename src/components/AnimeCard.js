@@ -14,12 +14,11 @@ function AnimeCard(props) {
         <div className="m-auto text-center">
           <img
             className="mx-auto rounded-lg mb-6"
-            alt=""
+            alt={props.anime.title}
             src={props.anime.image_url}
           ></img>
 
           <div className="bg-gray-50 p-10 rounded-lg bg-opacity-40">
-            {" "}
             <p className="text-2xl font-bold">{props.anime.title}</p>
             <p>
               {props.anime.synopsis !== null

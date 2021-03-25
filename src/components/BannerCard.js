@@ -6,7 +6,8 @@ function BannerCard(props) {
 
   return (
     <div className="mainBG w-full rounded shadow-lg">
-      <div className="grid grid-cols-2">
+      <div className={props.banner + " h-52 md:hidden"}></div>
+      <div className="md:grid md:grid-cols-2 block">
         <div className="p-10">
           <p className="font-bold text-2xl ">{props.title}</p>
           <p>{props.description}</p>
@@ -21,7 +22,6 @@ function BannerCard(props) {
             </>
           </button>
         </div>
-
         <div className={props.banner}></div>
       </div>
     </div>

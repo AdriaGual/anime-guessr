@@ -186,7 +186,7 @@ function GuessAnimeGame(props) {
         <p className="pt-4">{selectedAnime.synopsis}</p>
         <p className="pt-4">{selectedAnime.rating}</p>
         <p>{selectedAnime.source}</p>
-        <p>{selectedAnime.rank}</p>{" "}
+        <p>{selectedAnime.rank}</p>
         <div className="block md:grid md:grid-cols-3 lg:grid-cols-5 px-40 pt-20">
           {animes.map((value, index) => {
             console.log(value);
@@ -194,7 +194,7 @@ function GuessAnimeGame(props) {
               <img
                 className="rounded-lg shadow-lg hover:opacity-80 cursor-pointer"
                 onClick={() => verifyAnswer(value)}
-                alt=""
+                alt={value.title}
                 src={value.image_url}
               ></img>
             );
@@ -202,7 +202,6 @@ function GuessAnimeGame(props) {
         </div>
       </div>
       <div className="centered">
-        {" "}
         {rightAnswer ? (
           <Lottie options={defaultSuccessOptions} height={200} width={200} />
         ) : (

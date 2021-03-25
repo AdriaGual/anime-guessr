@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { HiOutlineHome } from "react-icons/hi";
-import chihiroLogo from "../images/neko.svg";
+import nekoLogo from "../images/neko.svg";
 export class TopPanel extends Component {
   render() {
     return (
@@ -10,9 +10,9 @@ export class TopPanel extends Component {
             {window.location.pathname.match("/") ? (
               <>
                 <img
-                  src={chihiroLogo}
+                  src={nekoLogo}
                   width="40"
-                  alt="hatLogo"
+                  alt="nekoLogo"
                   className="inline-block"
                 ></img>
                 <p className="pl-2 inline-block align-middle font-semibold">

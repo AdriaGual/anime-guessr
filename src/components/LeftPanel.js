@@ -1,33 +1,42 @@
 import React from "react";
-import chihiroLogo from "../images/neko.svg";
+import nekoLogo from "../images/neko.svg";
 import { FaGithub } from "react-icons/fa";
-
+import { HiHome, HiOutlineHome } from "react-icons/hi";
+import { Link, useLocation } from "react-router-dom";
 function LeftPanel() {
   return (
     <div className="p-10 shadow-xl h-screen hidden lg:block border-r-2 border-gray-300">
       <>
         <img
-          src={chihiroLogo}
+          src={nekoLogo}
           width="40"
-          alt="hatLogo"
+          alt="nekoLogo"
           className="inline-block"
         ></img>
         <p className="text-lg font-bold inline-block align-middle pl-2">
           AnimeGuessr
         </p>
       </>
-      <div className="pt-6 cursor-pointer">
-        <div
-          onClick={() => window.open("https://github.com/AdriaGual", "_blank")}
-        >
-          <FaGithub size={20} className="inline-block text-purple-700" />
-          <p className="pl-2 inline-block align-middle font-semibold">
-            @AdriaGual
-          </p>
-        </div>
-      </div>{" "}
+      <div className="pt-6">
+        <Link to="/">
+          {useLocation().pathname.endsWith("/") ? (
+            <>
+              <HiHome size={20} className="inline-block text-purple-700" />
+              <p className="pl-2 inline-block align-middle font-semibold">
+                Home
+              </p>
+            </>
+          ) : (
+            <>
+              <HiOutlineHome size={20} className="inline-block" />
+              <p className="pl-2 inline-block align-middle">Home</p>
+            </>
+          )}
+        </Link>
+      </div>
+
       {/*<div className="pt-4 cursor-pointer">
-        {" "}
+
         <div
           onClick={() => window.open("https://twitter.com/walie_6", "_blank")}
         >
@@ -36,9 +45,9 @@ function LeftPanel() {
             @walie_6
           </p>
         </div>
-      </div>{" "}
+      </div>
       <div className="pt-4 cursor-pointer">
-        {" "}
+        
         <div
           onClick={() =>
             window.open(
@@ -52,9 +61,9 @@ function LeftPanel() {
             @Adrià Gual
           </p>
         </div>
-      </div>{" "}
+      </div>
       <div className="pt-4 cursor-pointer">
-        {" "}
+        
         <div
           onClick={() =>
             window.open("https://www.instagram.com/adria_gual", "_blank")

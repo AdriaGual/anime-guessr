@@ -5,6 +5,7 @@ import LeftPanel from "../components/LeftPanel";
 import TopPanel from "../components/TopPanel";
 import HeroPanel from "../components/HeroPanel";
 import GuessAnimeGame from "./GuessAnimeGame";
+import Footer from "../components/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <HeroPanel></HeroPanel>
             </div>
           </div>
+          <Footer></Footer>
         </Route>
         <Route exact path="/trendAnime">
           <div className="flex flex-col h-screen bodyBG">
