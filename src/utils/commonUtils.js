@@ -53,3 +53,13 @@ export function shuffle(arr) {
   }
   return arr;
 }
+
+export function animeAlreadyShown(animeSelected, animes) {
+  for (var counter in animes) {
+    if (animes[counter].mal_id === animeSelected.id) {
+      return true;
+    }
+  }
+
+  return false;
+}

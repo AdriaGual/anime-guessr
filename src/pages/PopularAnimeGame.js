@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import BounceLoader from "react-spinners/BounceLoader";
 import AnimeCard from "../components/AnimeCard";
@@ -11,6 +11,7 @@ import {
   bounceLoaderOverride,
   shuffle,
   getRandomIntRange,
+  animeAlreadyShown,
 } from "../utils/commonUtils";
 import Lottie from "react-lottie";
 import battleLogo from "../images/espadas.svg";
@@ -19,6 +20,7 @@ import { HiHome } from "react-icons/hi";
 function PopularAnimeGame(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [animes, setAnimes] = useState([]);
+  const animesShown = useRef([]);
   const [pointsCounter, setPointsCounter] = useState(0);
   const [rightAnswer, setRightAnswer] = useState(false);
   const [wrongAnswer, setWrongAnswer] = useState(false);
@@ -32,6 +34,7 @@ function PopularAnimeGame(props) {
         points++;
         setRightAnswer(true);
         setTimeout(() => {
+          animesShown.current.push(animes[0], animes[1]);
           setIsLoading(true);
           setPointsCounter(points);
         }, 3000);
@@ -61,12 +64,19 @@ function PopularAnimeGame(props) {
         .then(
           (res2) => {
             var response2 = res2.data.top[getRandomInt(49)];
-            axios(
-              "https://api.jikan.moe/v3/" + props.type + "/" + response2.mal_id
-            ).then((resfinal) => {
-              setAnimes(shuffle([response, resfinal.data]));
-              setIsLoading(false);
-            });
+            if (animeAlreadyShown(response2, animesShown.current)) {
+              fetch2ndAnime(response);
+            } else {
+              axios(
+                "https://api.jikan.moe/v3/" +
+                  props.type +
+                  "/" +
+                  response2.mal_id
+              ).then((resfinal) => {
+                setAnimes(shuffle([response, resfinal.data]));
+                setIsLoading(false);
+              });
+            }
           },
           function (error) {
             fetch2ndAnime(response);
@@ -89,10 +99,14 @@ function PopularAnimeGame(props) {
             getRandomInt(difficultyRound)
         );
         var response = result.data.top[getRandomInt(49)];
-        const resultFull = await axios(
-          "https://api.jikan.moe/v3/" + props.type + "/" + response.mal_id
-        );
-        fetch2ndAnime(resultFull.data);
+        if (animeAlreadyShown(response, animesShown.current)) {
+          fetchAnime();
+        } else {
+          const resultFull = await axios(
+            "https://api.jikan.moe/v3/" + props.type + "/" + response.mal_id
+          );
+          fetch2ndAnime(resultFull.data);
+        }
       } catch (error) {
         //fetchAnime();
       }
