@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { HiOutlineHome } from "react-icons/hi";
 import nekoLogo from "../images/neko.svg";
+import { Toggle } from "../utils/toggle";
+
 export class TopPanel extends Component {
   render() {
     return (
-      <div className="py-4 shadow-lg w-screen lg:hidden block">
+      <div className="py-4 shadow-3xl border-b-2 w-screen lg:hidden block bg-primary">
         <div className="grid grid-cols-2 text-center">
           <div>
             {window.location.pathname.match("/") ? (
@@ -15,7 +17,7 @@ export class TopPanel extends Component {
                   alt="nekoLogo"
                   className="inline-block"
                 ></img>
-                <p className="pl-2 inline-block align-middle font-semibold">
+                <p className="pl-2 inline-block align-middle font-semibold text-primary">
                   AnimeGuessr
                 </p>
               </>
@@ -26,6 +28,7 @@ export class TopPanel extends Component {
               </>
             )}
           </div>
+          <Toggle></Toggle>
         </div>
       </div>
     );
