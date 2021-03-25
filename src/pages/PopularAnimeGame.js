@@ -51,7 +51,7 @@ function PopularAnimeGame(props) {
       if (pointsCounter < 50) {
         difficultyRound = 200;
       } else {
-        difficultyRound = 10 - (pointsCounter % 10);
+        difficultyRound = 100 - (pointsCounter % 10);
       }
       axios
         .get(
