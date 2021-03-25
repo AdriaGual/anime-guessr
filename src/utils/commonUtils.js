@@ -56,7 +56,7 @@ export function shuffle(arr) {
 
 export function animeAlreadyShown(animeSelected, animes) {
   for (var counter in animes) {
-    if (animes[counter].mal_id === animeSelected.id) {
+    if (animes[counter].mal_id === animeSelected.mal_id) {
       return true;
     }
   }
