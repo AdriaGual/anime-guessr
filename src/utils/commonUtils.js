@@ -4,7 +4,7 @@ import { css } from "@emotion/core";
 
 export function isRightAnswer(selectedOption, animes) {
   var answer;
-  if (animes[0].rank < animes[1].rank) {
+  if (animes[0].popularity < animes[1].popularity) {
     answer = "0";
   } else {
     answer = "1";

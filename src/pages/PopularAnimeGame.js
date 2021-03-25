@@ -9,6 +9,8 @@ import {
   defaultSuccessOptions,
   getRandomInt,
   bounceLoaderOverride,
+  shuffle,
+  firstAnimeRank,
 } from "../utils/commonUtils";
 import Lottie from "react-lottie";
 import battleLogo from "../images/espadas.svg";
@@ -46,18 +48,25 @@ function PopularAnimeGame(props) {
     setRightAnswer(false);
     setWrongAnswer(false);
     function fetch2ndAnime(response) {
+      var difficultyRound;
+      if (pointsCounter < 50) {
+        difficultyRound = 300;
+      } else {
+        difficultyRound = 10 - (pointsCounter % 10);
+      }
       axios
         .get(
-          "https://api.jikan.moe/v3/" + props.type + "/" + getRandomInt(15000)
+          "https://api.jikan.moe/v3/top/" + props.type + "/" + difficultyRound
         )
         .then(
           (res2) => {
-            if (res2.data.rank == null) {
-              fetch2ndAnime(response);
-            } else {
-              setAnimes([response, res2.data]);
+            var response2 = res2.data.top[getRandomInt(49)];
+            axios(
+              "https://api.jikan.moe/v3/" + props.type + "/" + response2.mal_id
+            ).then((resfinal) => {
+              setAnimes(shuffle([response, resfinal.data]));
               setIsLoading(false);
-            }
+            });
           },
           function (error) {
             fetch2ndAnime(response);
@@ -67,17 +76,25 @@ function PopularAnimeGame(props) {
 
     const fetchAnime = async () => {
       try {
-        const result = await axios(
-          "https://api.jikan.moe/v3/" + props.type + "/" + getRandomInt(15000)
-        );
-        if (result.data.rank == null) {
-          fetchAnime();
+        var difficultyRound;
+        if (pointsCounter < 10) {
+          difficultyRound = 1;
         } else {
-          var response = result.data;
-          fetch2ndAnime(response);
+          difficultyRound = pointsCounter % 10;
         }
+        const result = await axios(
+          "https://api.jikan.moe/v3/top/" +
+            props.type +
+            "/" +
+            getRandomInt(difficultyRound)
+        );
+        var response = result.data.top[getRandomInt(49)];
+        const resultFull = await axios(
+          "https://api.jikan.moe/v3/" + props.type + "/" + response.mal_id
+        );
+        fetch2ndAnime(resultFull.data);
       } catch (error) {
-        fetchAnime();
+        //fetchAnime();
       }
     };
     fetchAnime();
@@ -129,7 +146,7 @@ function PopularAnimeGame(props) {
         {rightAnswer || wrongAnswer ? (
           <div>
             <p className="text-left font-bold text-yellow-400 text-3xl">
-              Rank {animes[0].rank}
+              Rank {animes[0].popularity}
             </p>
           </div>
         ) : (
@@ -160,7 +177,7 @@ function PopularAnimeGame(props) {
         {rightAnswer || wrongAnswer ? (
           <div>
             <p className="text-right font-bold text-yellow-400 text-3xl">
-              Rank {animes[1].rank}
+              Rank {animes[1].popularity}
             </p>
           </div>
         ) : (
