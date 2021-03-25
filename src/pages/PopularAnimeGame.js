@@ -10,6 +10,7 @@ import {
   getRandomInt,
   bounceLoaderOverride,
   shuffle,
+  getRandomIntRange,
 } from "../utils/commonUtils";
 import Lottie from "react-lottie";
 import battleLogo from "../images/espadas.svg";
@@ -49,9 +50,9 @@ function PopularAnimeGame(props) {
     function fetch2ndAnime(response) {
       var difficultyRound;
       if (pointsCounter < 50) {
-        difficultyRound = 200;
+        difficultyRound = getRandomIntRange(100, 200);
       } else {
-        difficultyRound = 100 - (pointsCounter % 10);
+        difficultyRound = getRandomInt(100 - (pointsCounter % 10));
       }
       axios
         .get(

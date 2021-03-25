@@ -34,6 +34,10 @@ export function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
+export function getRandomIntRange(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
 export const bounceLoaderOverride = css`
   display: block;
   margin: 0 auto;
