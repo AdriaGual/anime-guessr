@@ -77,9 +77,9 @@ function PopularAnimeGame(props) {
       try {
         var difficultyRound;
         if (pointsCounter < 10) {
-          difficultyRound = getRandomInt(2);
+          difficultyRound = getRandomInt(4);
         } else {
-          difficultyRound = getRandomInt((pointsCounter % 10) + 2);
+          difficultyRound = getRandomInt((pointsCounter % 10) + 4);
         }
         const result = await axios(
           "https://api.jikan.moe/v3/top/" +
