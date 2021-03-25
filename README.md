@@ -28,7 +28,7 @@ Your app is ready to be deployed!
 
 ## React packages used
 
-Axios [react-axios](https://www.npmjs.com/package/react-axios)
+React-axios [react-axios](https://www.npmjs.com/package/react-axios)
 
 React-dom [react-router-dom](https://reactrouter.com/web/guides/quick-start)
 
