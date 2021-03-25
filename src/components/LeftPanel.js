@@ -21,8 +21,8 @@ function LeftPanel() {
         <Link to="/">
           {useLocation().pathname.endsWith("/") ? (
             <>
-              <HiHome size={20} className="inline-block text-purple-700" />
-              <p className="pl-2 inline-block align-middle font-semibold">
+              <HiHome size={20} className="inline-block text-primary" />
+              <p className="pl-2 inline-block align-middle font-semibold text-primary">
                 Home
               </p>
             </>
@@ -37,10 +37,14 @@ function LeftPanel() {
 
       <div className="pt-4 cursor-pointer absolute bottom-36 left-10">
         <div
-          onClick={() => window.open("https://twitter.com/walie_6", "_blank")}
+          onClick={() =>
+            window.open("https://github.com/AdriaGual/anime-guessr", "_blank")
+          }
         >
-          <FaGithub size={20} className="inline-block text-purple-700" />
-          <p className="pl-2 inline-block align-middle font-semibold">Repo</p>
+          <FaGithub size={20} className="inline-block text-primary" />
+          <p className="pl-2 inline-block align-middle font-semibold text-primary">
+            Repo
+          </p>
         </div>
       </div>
       <div className="pt-6 absolute bottom-10 left-10">
@@ -51,8 +55,8 @@ function LeftPanel() {
         <div
           onClick={() => window.open("https://twitter.com/walie_6", "_blank")}
         >
-          <FaTwitter size={20} className="inline-block text-purple-700" />
-          <p className="pl-2 inline-block align-middle font-semibold">
+          <FaTwitter size={20} className="inline-block text-primary" />
+          <p className="pl-2 inline-block align-middle font-semibold text-primary">
             @walie_6
           </p>
         </div>
