@@ -10,7 +10,6 @@ import {
   getRandomInt,
   bounceLoaderOverride,
   shuffle,
-  firstAnimeRank,
 } from "../utils/commonUtils";
 import Lottie from "react-lottie";
 import battleLogo from "../images/espadas.svg";
