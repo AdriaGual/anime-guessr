@@ -78,7 +78,7 @@ function PopularAnimeGame(props) {
       try {
         var difficultyRound;
         if (pointsCounter < 10) {
-          difficultyRound = getRandomInt(4);
+          difficultyRound = getRandomInt(4) + 1;
         } else {
           difficultyRound = getRandomInt((pointsCounter % 10) + 4);
         }
