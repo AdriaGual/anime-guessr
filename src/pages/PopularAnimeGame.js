@@ -50,7 +50,7 @@ function PopularAnimeGame(props) {
     function fetch2ndAnime(response) {
       var difficultyRound;
       if (pointsCounter < 50) {
-        difficultyRound = 300;
+        difficultyRound = 200;
       } else {
         difficultyRound = 10 - (pointsCounter % 10);
       }
