@@ -50,55 +50,41 @@ function PopularAnimeGame(props) {
   useEffect(() => {
     setRightAnswer(false);
     setWrongAnswer(false);
-    function fetch2ndAnime(response) {
-      var difficultyRound;
-      if (pointsCounter < 50) {
-        difficultyRound = getRandomIntRange(100, 200);
-      } else {
-        difficultyRound = getRandomInt(100 - (pointsCounter % 10));
-      }
-      axios
-        .get(
-          "https://api.jikan.moe/v4/top/" + props.type + "?page=" + difficultyRound
-        )
-        .then(
-          (res2) => {
-            var response2 = res2.data['data'][getRandomInt(24)];
-            if (animeAlreadyShown(response2, animesShown.current)) {
-              fetch2ndAnime(response);
-            } else {
-              setAnimes(shuffle([response, response2]));
-              setIsLoading(false);
-            }
-          },
-          function (error) {
-            fetch2ndAnime(response);
-          }
-        );
-    }
-
-    const fetchAnime = async () => {
+    async function fetch2ndAnime(response) {
+      const difficultyRound =
+        pointsCounter < 50 ? getRandomIntRange(100, 200) : getRandomInt(100 - (pointsCounter % 10));
+    
       try {
-        var difficultyRound;
-        if (pointsCounter < 10) {
-          difficultyRound = getRandomInt(4) + 1;
+        const res2 = await axios.get(`https://api.jikan.moe/v4/top/${props.type}?page=${difficultyRound}`);
+        const response2 = res2.data['data'][getRandomInt(24)];
+    
+        if (animeAlreadyShown(response2, animesShown.current)) {
+          await fetch2ndAnime(response);
         } else {
-          difficultyRound = getRandomInt((pointsCounter % 10) + 4);
-        }
-
-        const result = await axios(
-          "https://api.jikan.moe/v4/top/" + props.type + "?page=" +
-            getRandomInt(difficultyRound)+1
-        );
-        var response = result.data['data'][getRandomInt(24)];
-        console.log(result.data['data'][getRandomInt(24)])
-        if (animeAlreadyShown(response, animesShown.current)) {
-          fetchAnime();
-        } else {
-          fetch2ndAnime(response);
+          setAnimes(shuffle([response, response2]));
+          setIsLoading(false);
         }
       } catch (error) {
-        //fetchAnime();
+        await fetch2ndAnime(response);
+      }
+    }
+    
+    const fetchAnime = async () => {
+      try {
+        const difficultyRound =
+          pointsCounter < 10 ? getRandomInt(4) + 1 : getRandomInt((pointsCounter % 10) + 4) + 1;
+    
+        const result = await axios.get(`https://api.jikan.moe/v4/top/${props.type}?page=${difficultyRound}`);
+        const response = result.data['data'][getRandomInt(24)];
+    
+        if (animeAlreadyShown(response, animesShown.current)) {
+          await fetchAnime();
+        } else {
+          await fetch2ndAnime(response);
+        }
+      } catch (error) {
+        // Handle error or uncomment the line below to retry fetching
+        // await fetchAnime();
       }
     };
     fetchAnime();
