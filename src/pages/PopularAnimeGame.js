@@ -41,7 +41,9 @@ function PopularAnimeGame(props) {
       } else {
         setWrongAnswer(true);
         setTimeout(() => {
-          history.push("/");
+          if (wrongAnswer){
+            history.push("/");
+          }
         }, 5000);
       }
     }
