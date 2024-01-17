@@ -15,9 +15,8 @@ function AnimeCard(props) {
           <img
             className="mx-auto rounded-lg mb-6"
             alt={props.anime.title}
-            src={props.anime.image_url}
+            src={props.anime.images.webp.image_url}
           ></img>
-
           <div className="bg-gray-50 p-10 rounded-lg bg-opacity-40">
             <p className="text-2xl font-bold">{props.anime.title}</p>
             <p>

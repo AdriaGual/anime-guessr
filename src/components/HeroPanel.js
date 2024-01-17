@@ -9,15 +9,15 @@ function HeroPanel() {
           <BannerCard
             title="Which anime is more popular?"
             description="A frustratingly addictive game of anime choosing according to
-                  MyAnimeList"
+              MyAnimeList"
             page="/trendAnime"
             banner="animeBanner"
           ></BannerCard>
           <div className="pt-6"></div>
           <BannerCard
             title="Which manga is more popular?"
-            description="A frustratingly addictive game of manga choosing according to
-                  MyAnimeList"
+            description="A frustratingly addictive game of manga choosing according to 
+              MyAnimeList"
             page="/trendManga"
             banner="mangaBanner"
           ></BannerCard>

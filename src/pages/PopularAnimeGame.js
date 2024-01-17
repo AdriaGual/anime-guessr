@@ -40,9 +40,9 @@ function PopularAnimeGame(props) {
         }, 3000);
       } else {
         setWrongAnswer(true);
-        /* setTimeout(() => {
+        setTimeout(() => {
           history.push("/");
-        }, 3000);*/
+        }, 5000);
       }
     }
   };
@@ -59,23 +59,16 @@ function PopularAnimeGame(props) {
       }
       axios
         .get(
-          "https://api.jikan.moe/v3/top/" + props.type + "/" + difficultyRound
+          "https://api.jikan.moe/v4/top/" + props.type + "?page=" + difficultyRound
         )
         .then(
           (res2) => {
-            var response2 = res2.data.top[getRandomInt(49)];
+            var response2 = res2.data['data'][getRandomInt(24)];
             if (animeAlreadyShown(response2, animesShown.current)) {
               fetch2ndAnime(response);
             } else {
-              axios(
-                "https://api.jikan.moe/v3/" +
-                  props.type +
-                  "/" +
-                  response2.mal_id
-              ).then((resfinal) => {
-                setAnimes(shuffle([response, resfinal.data]));
-                setIsLoading(false);
-              });
+              setAnimes(shuffle([response, response2]));
+              setIsLoading(false);
             }
           },
           function (error) {
@@ -92,20 +85,17 @@ function PopularAnimeGame(props) {
         } else {
           difficultyRound = getRandomInt((pointsCounter % 10) + 4);
         }
+
         const result = await axios(
-          "https://api.jikan.moe/v3/top/" +
-            props.type +
-            "/" +
-            getRandomInt(difficultyRound)
+          "https://api.jikan.moe/v4/top/" + props.type + "?page=" +
+            getRandomInt(difficultyRound)+1
         );
-        var response = result.data.top[getRandomInt(49)];
+        var response = result.data['data'][getRandomInt(24)];
+        console.log(result.data['data'][getRandomInt(24)])
         if (animeAlreadyShown(response, animesShown.current)) {
           fetchAnime();
         } else {
-          const resultFull = await axios(
-            "https://api.jikan.moe/v3/" + props.type + "/" + response.mal_id
-          );
-          fetch2ndAnime(resultFull.data);
+          fetch2ndAnime(response);
         }
       } catch (error) {
         //fetchAnime();
